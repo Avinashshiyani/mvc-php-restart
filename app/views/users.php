@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -16,7 +17,7 @@
           <h2 class="text-xl font-medium text-gray-800 :text-white">Users</h2>
 
           <span class="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full :bg-gray-800 :text-blue-400">
-            <?= count($users) ?> vendors</span>
+            
         </div>
 
         <p class="mt-1 text-sm text-gray-500 :text-gray-300">These companies have purchased in the last 12 months.</p>
@@ -79,7 +80,7 @@
         <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
           <div class="overflow-hidden border border-gray-200 :border-gray-700 md:rounded-lg">
             <table class="min-w-full divide-y divide-gray-200 :divide-gray-700">
-              <thead class="bg-gray-50 :bg-gray-800">
+              <thead class="bg-gray-50 ">
                 <tr>
                   <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">
                     Id
@@ -88,11 +89,7 @@
                     Name
                   </th>
                   <th scope="col" class="py-3.5 px-4 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">
-
                     email
-
-
-
                   </th>
 
                   <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">
@@ -101,6 +98,9 @@
 
                   <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">
                     Address
+                  </th>
+                  <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">
+                    Operations
                   </th>
 
                   <th scope="col" class="px-4 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-500 :text-gray-400">Phone</th>
@@ -122,21 +122,16 @@
 
                     <td class="px-12 py-4 text-sm font-medium whitespace-nowrap">
                       <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 :bg-gray-800">
-                        Customer
+                      <?= $user['status'] ?>
                       </div>
                     </td>
                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                       <div>
                         <h4 class="text-gray-700 :text-gray-200">
 
-                          <?= $user['address']['street'] ?>
+                          <?= $user['address'] ?>
                         </h4>
                         <p class="text-gray-500 :text-gray-400">
-
-                          <?= $user['address']['suite'] ?>,
-                          <?= $user['address']['city'] ?>,
-                          <?= $user['address']['zipcode'] ?>
-
                         </p>
                       </div>
                     </td>
@@ -152,7 +147,10 @@
 
                     <td class="px-4 py-4 text-sm whitespace-nowrap">
                      <button >
-                       <a href="<?= set_url('users/delete/'.$user['id'])?>" class="text-red-500 ">
+                       <a href="<?= set_url('users/edit/'.$user['id'])?>" class="text-blue-500 ">
+                         Edit 
+                    </a>
+                    <a href="<?= set_url('users/delete/'.$user['id'])?>" class="text-red-500 ">
                          Delete  
                     </a>
                     </button>
@@ -195,10 +193,10 @@
         </a>
       </div>
     </div>
+
+
   </section>
-  <pre>
-
-
+  
 </body>
 
 </html>
